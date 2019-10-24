@@ -24,29 +24,40 @@ export default Ractive.extend({
 			<h4 style="color: #000;">{{StackName}}</h4>
 
 		</div>
-		<div style="position: absolute;left: 270px;right:0px;top: 40px;bottom: 0px;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
-				<tabhead style="background-color:#fff;">
+		<div style="position: absolute;left: 270px;right:0px;top: 40px;bottom: 0px;">
+				<tabhead style="">
 					<tab class='{{#if active_id === "exports" }}active{{/if}}' on-click='@this.fire("activetab", "exports")'>Outputs</tab>
 					<tab class='{{#if active_id === "resources" }}active{{/if}}' on-click='@this.fire("activetab", "resources")'>Resources</tab>
 					<tab class='{{#if active_id === "events" }}active{{/if}}' on-click='@this.fire("activetab", "events")'>Events</tab>
 					<tab class='{{#if active_id === "template" }}active{{/if}}'   on-click='@this.fire("activetab", "template")'>Template</tab>
 					<tab class='{{#if active_id === "parameters" }}active{{/if}}' on-click='@this.fire("activetab", "parameters")'>Parameters</tab>
 				</tabhead>
-				<tabcontent style="background-color:#fff;">
+
+				<tabcontent style="top: 50px;">
 					{{#if active_id === "template" }}
-						<stackdetailstemplate StackName="{{StackName}}">
+						<div style="position: absolute;top: 0;left: 0;right:0;bottom: 0; background-color:#fff;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+							<stackdetailstemplate StackName="{{StackName}}">
+						</div>
 					{{/if}}
 					{{#if active_id === "parameters" }}
-						<stackdetailsparameters StackName="{{StackName}}">
+						<div style="background-color:#fff;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+							<stackdetailsparameters StackName="{{StackName}}">
+						</div>
 					{{/if}}
 					{{#if active_id === "resources" }}
-						<stackdetailsresources StackName="{{StackName}}">
+						<div style="background-color:#fff;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+							<stackdetailsresources StackName="{{StackName}}">
+						</div>
 					{{/if}}
 					{{#if active_id === "events" }}
-						<stackdetailsevents StackName="{{StackName}}">
+						<div style="background-color:#fff;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+							<stackdetailsevents StackName="{{StackName}}">
+						</div>
 					{{/if}}
 					{{#if active_id === "exports" }}
-						<stackdetailsexports StackName="{{StackName}}">
+						<div style="background-color:#fff;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+							<stackdetailsexports StackName="{{StackName}}">
+						</div>
 					{{/if}}
 				</tabcontent>
 		</div>
