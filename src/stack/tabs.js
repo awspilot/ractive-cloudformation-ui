@@ -17,7 +17,7 @@ export default Ractive.extend({
 		`
 		<div style="position: absolute;left: 270px;right:0px;top: 0px;height: 50px;">
 			<div style="float: right;padding-top: 7px;">
-				<a class="btn btn-sm btn-default" on-click='delete' > Delete </a>
+				<a class="btn btn-sm btn-default" on-click='delete-stack' > Delete </a>
 				<a class="btn btn-sm btn-default disabled"  > Update </a>
 				<a class="btn btn-sm btn-default" on-click="create-stack"> Create Stack </a>
 			</div>
@@ -68,11 +68,31 @@ export default Ractive.extend({
 		}
 	},
 
+
 	oninit: function() {
 		var ractive = this
 
+		this.on('create-stack', function() {
+			ractive.root.findComponent('cftabs').command('stackcreate', 'Create Stack' )
+		})
+		this.on('delete-stack', function() {
 
+			var stackname = this.get('StackName')
 
+			if (confirm('Are you sure you want to delete stack ' + stackname )) {
+
+				cloudformation.deleteStack({ StackName: stackname, }, function(err, data) {
+					if (err)
+						alert('delete stack failed')
+
+					setTimeout(function(){
+						ractive.root.findComponent('cftabs').command('stacklist', '' )
+					}, 1500)
+
+				});
+			}
+
+		})
 		this.on('activetab', function(e, id) {
 			this.set('active_id', id )
 			return false;

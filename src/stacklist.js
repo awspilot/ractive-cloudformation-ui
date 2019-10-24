@@ -11,7 +11,7 @@ export default Ractive.extend({
 			<div style="float: right;">
 				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
 				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
-				<a class="btn btn-sm btn-default disabled" on-click='delete'> Update </a>
+				<a class="btn btn-sm btn-default disabled" on-click='update-stack'> Update </a>
 				<a class="btn btn-sm btn-warning" on-click="create-stack"> Create stack </a>
 			</div>
 		</div>
