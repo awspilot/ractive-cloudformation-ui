@@ -1,9 +1,9 @@
 
-import tabledata from '../tabledata';
+
 
 export default Ractive.extend({
 	components: {
-		tabledata: tabledata,
+
 	},
 	template: `
 		<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">

@@ -1,9 +1,9 @@
 
-import tabledata from './tabledata';
+
 
 export default Ractive.extend({
 	components: {
-		tabledata: tabledata,
+
 	},
 	template: `
 		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">
@@ -81,24 +81,6 @@ export default Ractive.extend({
 			ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
 			ractive.set('rows', [] )
 
-			// ractive.on('tabledata.selectrow', function(context) {
-			// 	var keypath = context.resolve()
-			// 	ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
-			//
-			// 	ractive.set('selection_length',
-			// 		ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
-			// 	)
-			// })
-
-			// ractive.observe('selection', function(n) {
-			//
-			// 	var param1 = n === 1 ?
-			// 		ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0][1].S
-			// 		:
-			// 		undefined;
-			//
-			// 	ractive.root.findComponent('cftabs').command( n === 1 ? 'stackdetails' : 'stacklist', param1 )
-			// })
 
 			ractive.on('refresh', function() {
 				ractive.stack_list()
