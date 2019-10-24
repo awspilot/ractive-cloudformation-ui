@@ -1,9 +1,11 @@
 
 import stacklist from './stacklist';
+import stackdetails from './stackdetails';
 
 export default Ractive.extend({
 	components: {
 		stacklist: stacklist,
+		stackdetails: stackdetails,
 	},
 
 	template:
