@@ -10,7 +10,7 @@ export default Ractive.extend({
 		`
 			{{#if active_id === "stacklist" || active_id === "stackdetails" }}
 			<div style="position: absolute;top: 40px;left: 50px;right: 50px;bottom: 10px;">
-				<div style="position: absolute;top: 0px;left: 0px;right:0px;height: {{#if active_id === 'stackdetails'}} 50% {{else}}100%{{/if}};box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;">
+				<div style="position: absolute;top: 0px;left: 0px;right:0px;height: {{#if active_id === 'stackdetails'}} 50% {{else}}100%{{/if}};box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
 					<tabcontent style="top: 0px;">
 							<stacklist />
 					</tabcontent>
