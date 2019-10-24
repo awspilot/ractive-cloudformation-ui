@@ -6,23 +6,44 @@ export default Ractive.extend({
 		tabledata: tabledata,
 	},
 	template: `
-		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;border-bottom: 1px solid #eaeded;">
+		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">
 
 			<div style="float: right;">
 				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
-				<a class="btn btn-sm btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
+				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
 				<a class="btn btn-sm btn-default disabled" on-click='delete'> Update </a>
 				<a class="btn btn-sm btn-warning" on-click="create-stack"> Create stack </a>
 			</div>
 		</div>
 
+		<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">
+		    <thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">
+		        <tr>
+		            <th style="padding: 0.5em 1em;"></th>
+		            <th style="padding: 0.5em 1em;">Stack name</th>
+		            <th style="padding: 0.5em 1em;">Status</th>
+		            <th style="padding: 0.5em 1em;">Created time</th>
+					<th style="padding: 0.5em 1em;">Description</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+				{{#stacks}}
 
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 51px;' />
+		        <tr style="{{#if selection === .StackName }}border: 1px solid #4499ff;background-color: #f1faff;{{/if}}">
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}"><input type="radio" name={{selection}} value='{{.StackName}}'></td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}"><a style="cursor: pointer;" on-click="gotostack">{{.StackName}}</a></td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">{{.StackStatus}}</td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">{{.CreationTimeFormatted}}</td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">-</td>
+		        </tr>
+				{{/stacks}}
 
+		    </tbody>
+		</table>
 	`,
 	stack_list: function(cb) {
 		var ractive=this;
-		ractive.set('selection_length')
+
 		cloudformation.listStacks({
 			//  NextToken: 'STRING_VALUE',
 			//  StackStatusFilter: [
@@ -35,84 +56,84 @@ export default Ractive.extend({
 				if (cb) cb(err)
 				return;
 			}
-			ractive.set('rows',
+			ractive.set('stacks',
 				data.StackSummaries
 					.sort(function(a,b) {
 						return new Date(a.CreationTime).getTime() > new Date(b.CreationTime).getTime() ? -1 : 1;
 					})
-					.map(function(stack) {
-						console.log( stack )
-
-						return [
-							{ KEY: true },
-							{ S: stack.StackName },
-							{ S: stack.StackStatus },
-							{ S: new Date(stack.CreationTime).toISOString() },
-
-						]
+					.sort(function(s) {
+						s.CreationTimeFormatted = new Date(s.CreationTime).toISOString()
+						return s;
 					})
 			)
-
 
 			if (cb) cb(err,data)
 		});
 	},
-	oninit: function() {
-		var ractive=this;
-		ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
-		ractive.set('rows', [] )
-
-		ractive.on('tabledata.selectrow', function(context) {
-			var keypath = context.resolve()
-			ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
-
-			ractive.set('selection_length',
-				ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
-			)
-		})
-
-		ractive.observe('selection_length', function(n) {
-
-			var param1 = n === 1 ?
-				ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0][1].S
-				:
-				undefined;
-
-			ractive.root.findComponent('cftabs').command( n === 1 ? 'stackdetails' : 'stacklist', param1 )
-		})
-
-		ractive.on('refresh', function() {
-			ractive.stack_list()
-		})
-
-		ractive.on('create-stack', function() {
-			ractive.root.findComponent('cftabs').command('stackcreate', 'Create Stack' )
-		})
-		ractive.on('delete', function() {
-			var selected = ractive.get('rows').filter(function(r) { return r[0].selected === true } );
-
-			if ( selected.length === 0 )
-				return alert('Please select a stack to delete')
-
-			if ( selected.length > 1 )
-				return alert('Please select one stack at a time')
-
-			var stackname = selected[0][1].S
-
-			if (confirm('Are you sure you want to delete stack ' + stackname )) {
-
-				cloudformation.deleteStack({ StackName: stackname, }, function(err, data) {
-					if (err)
-						alert('delete stack failed')
-
-					setTimeout(function(){
-						ractive.stack_list()
-					}, 1500)
-
-				});
-			}
-
-		})
-		ractive.stack_list()
+	data: function() {
+		return {
+			selection: '',
+		}
 	},
+	on: {
+		init: function() {
+			var ractive=this;
+			ractive.set('columns', [ null, 'Stack Name', 'Status', 'Created time'])
+			ractive.set('rows', [] )
+
+			// ractive.on('tabledata.selectrow', function(context) {
+			// 	var keypath = context.resolve()
+			// 	ractive.set(keypath + '.0.selected', !ractive.get(keypath + '.0.selected') )
+			//
+			// 	ractive.set('selection_length',
+			// 		ractive.get('rows').filter(function(r) { return r[0].selected === true } ).length
+			// 	)
+			// })
+
+			// ractive.observe('selection', function(n) {
+			//
+			// 	var param1 = n === 1 ?
+			// 		ractive.get('rows').filter(function(r) { return r[0].selected === true } )[0][1].S
+			// 		:
+			// 		undefined;
+			//
+			// 	ractive.root.findComponent('cftabs').command( n === 1 ? 'stackdetails' : 'stacklist', param1 )
+			// })
+
+			ractive.on('refresh', function() {
+				ractive.stack_list()
+			})
+
+			ractive.on('create-stack', function() {
+				ractive.root.findComponent('cftabs').command('stackcreate', 'Create Stack' )
+			})
+			ractive.on('delete', function() {
+				var selected = ractive.get('selection')
+
+				if ( !selected )
+					return alert('Please select a stack to delete')
+
+				var stackname = selected
+
+				if (confirm('Are you sure you want to delete stack ' + stackname )) {
+
+					cloudformation.deleteStack({ StackName: stackname, }, function(err, data) {
+						if (err)
+							alert('delete stack failed')
+
+						setTimeout(function(){
+							ractive.stack_list()
+						}, 1500)
+
+					});
+				}
+
+			})
+			ractive.stack_list()
+		},
+		gotostack: function(e) {
+			this.root.findComponent('cftabs').command( 'stackdetails', this.get(e.resolve() + '.StackName') )
+		}
+	},
+
 });
