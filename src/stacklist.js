@@ -6,14 +6,18 @@ export default Ractive.extend({
 		tabledata: tabledata,
 	},
 	template: `
-		<div class="pull-right" style="padding: 7px;">
-			<a class="btn btn-xs btn-primary" on-click="create-stack"><i class="icon zmdi zmdi-plus"></i> CREATE STACK </a>
-			<a class="btn btn-xs btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" on-click='delete' as-tooltip=' \" Delete stack \" '><i class="icon zmdi zmdi-delete"></i></a>
-			<a class="btn btn-xs btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
+		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;border-bottom: 1px solid #eaeded;">
+
+			<div style="float: right;">
+				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
+				<a class="btn btn-sm btn-default {{#if selection_length > 0}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
+				<a class="btn btn-sm btn-default disabled" on-click='delete'> Update </a>
+				<a class="btn btn-sm btn-warning" on-click="create-stack"> Create stack </a>
+			</div>
 		</div>
 
 
-		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 38px;' />
+		<tabledata columns='{{columns}}' rows='{{rows}}' style='top: 51px;' />
 
 	`,
 	stack_list: function(cb) {
