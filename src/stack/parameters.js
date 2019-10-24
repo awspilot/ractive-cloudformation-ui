@@ -48,17 +48,6 @@ export default Ractive.extend({
 
 			ractive.set('parameters', data.Stacks[0].Parameters )
 
-			ractive.set('rows',
-				data.Stacks[0].Parameters.map(function(p) {
-					return [
-						{ S: '' },
-						{ S: p.ParameterKey },
-						{ S: p.ParameterValue },
-						{ S: '' },
-					]
-				})
-			)
-
 		});
 
 	}
