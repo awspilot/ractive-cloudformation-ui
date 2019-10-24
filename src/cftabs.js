@@ -1,10 +1,12 @@
 
 import stacklist from './stacklist';
+import ministacklist from './ministacklist';
 import stackdetails from './stackdetails';
 
 export default Ractive.extend({
 	components: {
 		stacklist: stacklist,
+		ministacklist: ministacklist,
 		stackdetails: stackdetails,
 	},
 
@@ -14,7 +16,13 @@ export default Ractive.extend({
 			<div style="position: absolute;top: 40px;left: 50px;right: 50px;bottom: 10px;">
 				<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; bottom: 0px;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
 					<tabcontent style="top: 0px;">
+						{{#if active_id === "stacklist"}}
 							<stacklist />
+						{{/if}}
+
+						{{#if active_id === 'stackdetails'}}
+							<ministacklist active-stack="{{stackdetails}}" />
+						{{/if}}
 					</tabcontent>
 				</div>
 				{{#if active_id === 'stackdetails'}}
