@@ -30,9 +30,6 @@ export default Ractive.extend({
 	oninit: function() {
 		var ractive=this;
 
-		ractive.set('columns', [ '', 'Key', 'Value', 'Resolved Value'])
-		ractive.set('rows', [] )
-
 		var params = {
 			StackName: this.get('StackName'),
 			//TemplateStage: Original | Processed
