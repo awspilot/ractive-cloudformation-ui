@@ -5,7 +5,12 @@ export default Ractive.extend({
 
 	},
 	template: `
-		<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show; border: 1px solid #eaeded;width: 100%;">
+
+		<div style="padding: 7px;text-align: right;background-color: #fafafa;border-bottom: 1px solid #eaeded;">
+			<a class="btn btn-sm btn-default" on-click="@this.list_resources()"><i class="icon zmdi zmdi-refresh"></i></a>
+		</div>
+
+		<table style="border-collapse: collapse;border-spacing: 0; empty-cells: show;width: 100%;">
 		    <thead style="background-color: #fafafa;color: #000;text-align: left;vertical-align: bottom;border-bottom: 1px solid #eaeded">
 		        <tr>
 		            <th style="padding: 0.5em 1em;">Logical ID</th>
@@ -30,8 +35,9 @@ export default Ractive.extend({
 		</table>
 
 	`,
-	oninit: function() {
+	list_resources: function() {
 		var ractive=this;
+		ractive.set('resources',[])
 
 		var params = {
 			StackName: this.get('StackName'),
@@ -44,6 +50,14 @@ export default Ractive.extend({
 			ractive.set('resources',data.StackResourceSummaries)
 
 		});
+	},
+	oninit: function() {
+		var ractive=this;
 
+		var params = {
+			StackName: this.get('StackName'),
+		};
+
+		this.list_resources()
 	}
 });

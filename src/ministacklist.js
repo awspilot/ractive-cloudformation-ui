@@ -6,8 +6,8 @@ export default Ractive.extend({
 
 	},
 	template: `
-		<div style="padding: 7px;text-align: right;background-color: #fafafa;border-bottom: 1px solid #eaeded;">
-			<a class="btn btn-xs btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
+		<div style="padding: 7px;text-align: right;background-color: #fafafa;">
+			<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
 		</div>
 
 		{{#stacks}}
