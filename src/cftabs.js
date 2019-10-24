@@ -1,5 +1,11 @@
+
+import stacklist from './stacklist';
+
 export default Ractive.extend({
-	//isolated: true,
+	components: {
+		stacklist: stacklist,
+	},
+
 	template:
 		`
 			{{#if active_id === "stacklist" || active_id === "stackdetails" }}
