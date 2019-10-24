@@ -7,19 +7,20 @@ content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0p
 .ractive-cloudformation-ui {font-family: sans-serif;}
 .ractive-cloudformation-ui * {box-sizing: border-box }
 
-content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 28px;overflow: hidden;font-size: 0px;}
-content tabhead tab {display: inline-block;height: 28px;line-height: 28px;padding: 0px 10px;cursor: pointer;font-size: 14px;}
+content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 38px;overflow: hidden;font-size: 0px;}
+content tabhead tab {display: inline-block;line-height: 28px;padding: 0px 25px 0px 25px; margin-bottom: 10px; cursor: pointer;font-size: 14px;}
 content tabhead tab.active {}
-content tabhead tab .icon {width: 15px;height: 15px;line-height: 15px;text-align: center;margin-top: 2px;cursor: pointer;font-size: 14px;}
-content tabhead tab .icon:hover {box-shadow: 0px 0px 1px rgba(255,255,255,.3);}
 
 
 
 
-body.theme_light content tabhead {background-color: #ececec;background: linear-gradient(#eee , #e0e0e0);}
-body.theme_light content tabhead tab:first-child {}
-body.theme_light content tabhead tab {border-right: 1px solid #cccccc;}
-body.theme_light content tabhead tab.active {background-color: #ffffff;color: #000000;}
+
+body.theme_light content tabhead { padding-bottom: 10px;border-bottom: 1px solid #cccccc;}
+body.theme_light content tabhead tab:first-child {border-left: 0px;}
+body.theme_light content tabhead tab {border-left: 1px solid #cccccc;font-weight: bold;color: #545b64;}
+body.theme_light content tabhead tab.active {color: #eb5f07;position: relative;}
+body.theme_light content tabhead tab.active:after {content: '';position: absolute;left: 0px;right: 0px;bottom: -9px;border-bottom: 2px solid #000;}
+
 
 </style>
 
