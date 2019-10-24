@@ -14,21 +14,30 @@ export default Ractive.extend({
 
 	template:
 		`
+
+			<div style="height: 30px;margin-left: 10px;line-height: 30px;font-size: 15px;">
+				<a style="cursor: pointer;text-decoration: none;">Cloudformation</a> &gt;
+				<a style="cursor: pointer;text-decoration: none;" on-click="@this.set('active_id', 'stacklist')">Stacks</a>
+				{{#if active_id === 'stackdetails'}}
+					&gt; <a style="cursor: pointer;text-decoration: none;color: #999;">{{stackdetails}}</a>
+				{{/if}}
+			</div>
+
 			{{#if active_id === "stacklist" || active_id === "stackdetails" }}
 			<div style="position: absolute;top: 40px;left: 10px;right: 10px;bottom: 10px;">
-						{{#if active_id === "stacklist"}}
-							<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
-								<stacklist />
-							</div>
-						{{/if}}
+				{{#if active_id === "stacklist"}}
+					<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+						<stacklist />
+					</div>
+				{{/if}}
 
-						{{#if active_id === 'stackdetails'}}
-							<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; bottom: 0px;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
-								<tabcontent style="top: 0px;">
-									<ministacklist active-stack="{{stackdetails}}" />
-								</tabcontent>
-							</div>
-						{{/if}}
+				{{#if active_id === 'stackdetails'}}
+					<div style="position: absolute;top: 0px;left: 0px;width: {{#if active_id === 'stackdetails'}} 260px; {{else}}100%;{{/if}}; bottom: 0px;box-shadow: 0 1px 1px 0 rgba(0,28,36,.5);border-top: 1px solid #eaeded;background-color: #fff">
+						<tabcontent style="top: 0px;">
+							<ministacklist active-stack="{{stackdetails}}" />
+						</tabcontent>
+					</div>
+				{{/if}}
 				{{#if active_id === 'stackdetails'}}
 					<stackdetails stack="{{stackdetails}}" />
 				{{/if}}
