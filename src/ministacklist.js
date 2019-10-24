@@ -46,10 +46,14 @@ export default Ractive.extend({
 					.sort(function(a,b) {
 						return new Date(a.CreationTime).getTime() > new Date(b.CreationTime).getTime() ? -1 : 1;
 					})
+					.filter(function(s) {
+						return s.StackStatus !== 'DELETE_COMPLETE';
+					})
 					.sort(function(s) {
 						s.CreationTimeFormatted = new Date(s.CreationTime).toISOString()
 						return s;
 					})
+
 			)
 
 
