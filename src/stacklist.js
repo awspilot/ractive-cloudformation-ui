@@ -44,6 +44,7 @@ export default Ractive.extend({
 	stack_list: function(cb) {
 		var ractive=this;
 
+		this.set({stacks: []})
 		cloudformation.listStacks({
 			//  NextToken: 'STRING_VALUE',
 			//  StackStatusFilter: [
