@@ -29,12 +29,12 @@ export default Ractive.extend({
 		    <tbody>
 				{{#stacks}}
 
-		        <tr style="{{#if selection === .StackName }}border: 1px solid #4499ff;background-color: #f1faff;{{/if}}">
-		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}"><input type="radio" name={{selection}} value='{{.StackName}}'></td>
-		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}"><a style="cursor: pointer;" on-click="gotostack">{{.StackName}}</a></td>
-		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">{{.StackStatus}}</td>
-		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">{{.CreationTimeFormatted}}</td>
-		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;{{#if selection === .StackName }}border-bottom: 1px solid #4499ff;border-top: 1px solid #4499ff;{{/if}}">-</td>
+		        <tr style="{{#if selection === .StackName }}background-color: #f1faff;{{/if}}">
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><input type="radio" name={{selection}} value='{{.StackName}}'></td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;"><a style="cursor: pointer;" on-click="gotostack">{{.StackName}}</a></td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.StackStatus}}</td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">{{.CreationTimeFormatted}}</td>
+		            <td style="padding: 0.5em 1em;border-width: 0 0 1px 0;border-bottom: 1px solid #eaeded;">-</td>
 		        </tr>
 				{{/stacks}}
 
