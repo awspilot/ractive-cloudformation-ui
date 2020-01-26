@@ -104,24 +104,40 @@ export default Ractive.extend({
 
 		}
 	},
+
+	pickafile( cb ) {
+		var element = document.createElement( 'input');
+		element.setAttribute('type', 'file');
+		//element.setAttribute('accept', "text/csv");
+		element.setAttribute('style', "display: none;");
+		element.addEventListener('change', function(e) {
+
+			if (element.files.length > 1)
+				return alert('Please upload one file at a time')
+
+			cb( null, element.files[0] )
+		})
+
+		element.click()
+	},
+
 	oninit: function() {
 		var ractive=this;
 
 
 		ractive.on('upload', function(e ) {
 			ractive.set('err')
-			$('body').pickafile({
-				//accept: "text/csv",
-				onselect: function(file){
-					console.log('selected', file )
-					var reader = new FileReader();
-					reader.onload = function(e) {
-						ractive.set('newstack.StackName', file.name.split('.yaml').join('').split('.json').join('') )
-						ractive.set('newstack.TemplateBody', reader.result)
-					}
-					reader.readAsBinaryString(file);
-				},
+			ractive.pickafile(function( err, file ) {
+						console.log('selected', file )
+						var reader = new FileReader();
+						reader.onload = function(e) {
+							ractive.set('newstack.StackName', file.name.split('.yaml').join('').split('.json').join('') )
+							ractive.set('newstack.TemplateBody', reader.result)
+						}
+						reader.readAsBinaryString(file);
+
 			})
+
 		});
 		ractive.on('goto-parameters', function() {
 
