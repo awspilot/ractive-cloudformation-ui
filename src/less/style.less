@@ -1,0 +1,26 @@
+
+.ractive-cloudformation-ui {}
+.ractive-cloudformation-ui {font-family: sans-serif;}
+.ractive-cloudformation-ui * {box-sizing: border-box }
+
+.ractive-cloudformation-ui.hsplit {position: absolute;top:0px;left: 0px;right: 0px;bottom: 0px; /*background-color: #f0f0f0;*/background-color: #f2f3f3; color: #999999;}
+
+.ractive-cloudformation-ui {
+  left {position:absolute;display: block;top: 0px;left: 0px;width: 260px;bottom: 0px;background-color: #fff;}
+  content {position:absolute;display: block;top: 0px;left: 265px;right: 0px;bottom: 0px;margin-top: 5px;}
+  content tabcontent {position: absolute;top: 28px;left: 0px;right: 0px;bottom: 0px;}
+
+
+  content tabhead {position: absolute;top: 0px;left: 0px;right:0px;height: 38px;overflow: hidden;font-size: 0px;}
+  content tabhead tab {display: inline-block;line-height: 28px;padding: 0px 25px 0px 25px; margin-bottom: 10px; cursor: pointer;font-size: 14px;}
+  content tabhead tab.active {}
+
+}
+
+.ractive-cloudformation-ui {
+  content tabhead { padding-bottom: 10px;border-bottom: 1px solid #cccccc;}
+  content tabhead tab:first-child {border-left: 0px;}
+  content tabhead tab {border-left: 1px solid #cccccc;font-weight: bold;color: #545b64;}
+  content tabhead tab.active {color: #eb5f07;position: relative;}
+  content tabhead tab.active:after {content: '';position: absolute;left: 0px;right: 0px;bottom: -9px;border-bottom: 2px solid #000;}
+}
