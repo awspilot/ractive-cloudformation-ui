@@ -7,7 +7,7 @@
 
 	export default Ractive.extend({
 		template: `
-		<hsplit class='ractive-cloudformation-ui'>
+		<hsplit class='ractive-cloudformation-ui theme-{{theme}}'>
 			<left style="border-right: 1px solid #b9b8b6;">
 				<div style="display: block;font-size: 12px;padding-left: 10px;font-size: 18px;font-weight: 700;color: #000;line-height: 2rem;padding: 12px 35px;border-bottom: 1px solid #ddd;">
 					Cloudformation
