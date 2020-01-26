@@ -19,7 +19,7 @@ export default Ractive.extend({
 			<div style="float: right;padding-top: 7px;">
 				<a class="btn btn-sm btn-default" on-click='delete-stack' > Delete </a>
 				<a class="btn btn-sm btn-default disabled"  > Update </a>
-				<a class="btn btn-sm btn-default" on-click="create-stack"> Create Stack </a>
+				<a class="btn btn-sm btn-primary" on-click="create-stack"> Create Stack </a>
 			</div>
 			<h4 style="color: #000;">{{StackName}}</h4>
 
