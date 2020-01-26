@@ -1,0 +1,33 @@
+.ractive-cloudformation-ui.theme-atomdark {
+  & {
+
+    @import "theme-atom/one-dark-ui/ui-variables-custom";
+		@import "theme-atom/one-dark-ui/ui-variables";
+
+    @awspilot-button-background-color: @button-background-color;
+		@awspilot-button-background-image: inherit;
+		@awspilot-button-color: @text-color;
+		@awspilot-button-disabled-color: @text-color;
+		@awspilot-button-disabled-background-color: @button-background-color;
+
+		@awspilot-button-primary-background-color: @background-color-info;
+		@awspilot-button-primary-background-image: inherit;
+		@awspilot-button-primary-color: #fff;
+		@awspilot-button-primary-border-top: 1px solid @button-border-color;
+		@awspilot-button-primary-border-right: 1px solid @button-border-color;
+		@awspilot-button-primary-border-bottom: 1px solid @button-border-color;
+		@awspilot-button-primary-border-left: 1px solid @button-border-color;
+
+		@awspilot-button-danger-background-color: @background-color-error;
+		@awspilot-button-danger-color: #fff;
+
+		@awspilot-button-border-top: 1px solid @button-border-color;
+		@awspilot-button-border-right: 1px solid @button-border-color;
+		@awspilot-button-border-bottom: 1px solid @button-border-color;
+		@awspilot-button-border-left: 1px solid @button-border-color;
+		@awspilot-button-box-shodow: none;
+		@awspilot-button-border-radius: 3px;
+
+		@import (multiple,reference) "./theme.less";
+  }
+}
