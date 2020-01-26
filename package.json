@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "dist/ractive-cloudformation-ui.min.js",
 	"scripts": {
-		"start": "webpack -w & node_modules/node-static/bin/cli.js -p 9999",
+		"dev": "docker run -it --rm -v $PWD:/usr/share/nginx/html -p 9999:80 nginx",
+
 		"build": "webpack",
 		"watch": "webpack --config webpack.config.js --watch"
 	},
