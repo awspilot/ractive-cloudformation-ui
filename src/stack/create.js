@@ -29,12 +29,12 @@ export default Ractive.extend({
 								<li>✅ partially supported <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html" target="_blank">AWS::S3::Bucket</a>
 								<li>❌ all other resource types are created as decoy
 							</p>
-							<a class="btn btn-md btn-default"  on-click='upload' >Upload Template</a>
+							<a class="btn btn-sm btn-default"  on-click='upload' >Upload Template</a>
 
 					</div>
 				</div>
 				<div style="max-width: 800px;">
-					<a class="btn btn-warning {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
+					<a class="btn btn-sm btn-primary {{#if newstack.TemplateBody === null }}disabled{{/if}} pull-right" on-click="goto-parameters">Next</a>
 				</div>
 			{{/if}}
 
@@ -76,7 +76,7 @@ export default Ractive.extend({
 				</div>
 
 				<div style="max-width: 800px;">
-					<a class="btn btn-warning {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
+					<a class="btn btn-sm btn-primary {{#if newstack.StackName === '' }}disabled{{/if}} pull-right" on-click="goto-confirm">Next</a>
 				</div>
 
 			{{/if}}
@@ -88,7 +88,7 @@ export default Ractive.extend({
 
 						<div class="err" style='{{#if !err}}visibility:hidden;{{/if}}color: #dc3636;background-color: #e69ca6;border: 1px solid #ec6b6b;border-radius: 3px;padding: 6px;margin-bottom: 10px;'>{{ err.message || "Create failed" }}</div>
 
-						<a class="btn btn-warning" on-click="create">Create</a>
+						<a class="btn btn-sm btn-primary" on-click="create">Create</a>
 					</div>
 				</div>
 			{{/if}}
