@@ -22,6 +22,11 @@
 
 		var ractive = new Ractive({
 			el: 'body',
+			data: function() {
+				return {
+					theme: 'aws',
+				}
+			},
 			components: {
 				'cloudformation-ui': window['ractive-cloudformation-ui']
 			},
