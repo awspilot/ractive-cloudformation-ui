@@ -5,3 +5,4 @@ res/
 package-lock.json
 webpack.config.js
 .nvmrc
+.babelrc
