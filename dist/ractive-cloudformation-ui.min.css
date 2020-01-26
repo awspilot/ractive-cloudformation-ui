@@ -1,0 +1,478 @@
+.ractive-cloudformation-ui .btn-group > .btn {
+  position: relative;
+  float: left;
+}
+.ractive-cloudformation-ui .btn-group,
+.ractive-cloudformation-ui .btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ractive-cloudformation-ui .btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.ractive-cloudformation-ui .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ractive-cloudformation-ui .btn-group-xs > .btn,
+.ractive-cloudformation-ui .btn-xs {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ractive-cloudformation-ui .btn-group > .btn:last-child:not(:first-child),
+.ractive-cloudformation-ui .btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.ractive-cloudformation-ui .btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.ractive-cloudformation-ui .btn-group .btn + .btn,
+.ractive-cloudformation-ui .btn-group .btn + .btn-group,
+.ractive-cloudformation-ui .btn-group .btn-group + .btn,
+.ractive-cloudformation-ui .btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+.ractive-cloudformation-ui .btn-default.active.focus,
+.ractive-cloudformation-ui .btn-default.active:focus,
+.ractive-cloudformation-ui .btn-default.active:hover,
+.ractive-cloudformation-ui .btn-default:active.focus,
+.ractive-cloudformation-ui .btn-default:active:focus,
+.ractive-cloudformation-ui .btn-default:active:hover,
+.ractive-cloudformation-ui .open > .dropdown-toggle.btn-default.focus,
+.ractive-cloudformation-ui .open > .dropdown-toggle.btn-default:focus,
+.ractive-cloudformation-ui .open > .dropdown-toggle.btn-default:hover {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.ractive-cloudformation-ui .btn.active.focus,
+.ractive-cloudformation-ui .btn.active:focus,
+.ractive-cloudformation-ui .btn.focus,
+.ractive-cloudformation-ui .btn:active.focus,
+.ractive-cloudformation-ui .btn:active:focus,
+.ractive-cloudformation-ui .btn:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.ractive-cloudformation-ui .btn-group-sm > .btn,
+.ractive-cloudformation-ui .btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ractive-cloudformation-ui .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+}
+.ractive-cloudformation-ui .dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}
+.ractive-cloudformation-ui .show {
+  display: block!important;
+}
+.ractive-cloudformation-ui .btn.disabled,
+.ractive-cloudformation-ui .btn[disabled],
+.ractive-cloudformation-ui fieldset[disabled] .btn {
+  filter: alpha(opacity=65);
+  box-shadow: none;
+  opacity: 0.65;
+  pointer-events: none;
+}
+.ractive-cloudformation-ui .btn-default.disabled,
+.ractive-cloudformation-ui .btn-default.btn-disabled,
+.ractive-cloudformation-ui .btn-default[disabled] {
+  cursor: default;
+}
+.ractive-cloudformation-ui .btn-group .dropdown-toggle:active,
+.ractive-cloudformation-ui .btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.ractive-cloudformation-ui .btn {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  text-shadow: none;
+}
+.ractive-cloudformation-ui {
+  font-family: sans-serif;
+}
+.ractive-cloudformation-ui * {
+  box-sizing: border-box;
+}
+.ractive-cloudformation-ui.hsplit {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  /*background-color: #f0f0f0;*/
+  background-color: #f2f3f3;
+  color: #999999;
+}
+.ractive-cloudformation-ui left {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 0px;
+  width: 260px;
+  bottom: 0px;
+  background-color: #fff;
+}
+.ractive-cloudformation-ui content {
+  position: absolute;
+  display: block;
+  top: 0px;
+  left: 265px;
+  right: 0px;
+  bottom: 0px;
+  margin-top: 5px;
+}
+.ractive-cloudformation-ui content tabcontent {
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+.ractive-cloudformation-ui content tabhead {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 38px;
+  overflow: hidden;
+  font-size: 0px;
+}
+.ractive-cloudformation-ui content tabhead tab {
+  display: inline-block;
+  line-height: 28px;
+  padding: 0px 25px 0px 25px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.ractive-cloudformation-ui content tabhead {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+.ractive-cloudformation-ui content tabhead tab:first-child {
+  border-left: 0px;
+}
+.ractive-cloudformation-ui content tabhead tab {
+  border-left: 1px solid #cccccc;
+  font-weight: bold;
+  color: #545b64;
+}
+.ractive-cloudformation-ui content tabhead tab.active {
+  color: #eb5f07;
+  position: relative;
+}
+.ractive-cloudformation-ui content tabhead tab.active:after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: -9px;
+  border-bottom: 2px solid #000;
+}
+.ractive-cloudformation-ui svg.icon {
+  fill: #000;
+  width: 11px;
+  height: 11px;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default {
+  color: hsl(220, 18%, 66%);
+  background-color: hsl(220, 24%, 26%);
+  background-image: inherit;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default > svg.icon {
+  color: hsl(220, 18%, 66%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-primary {
+  color: #fff;
+  background-color: hsl(208, 88%, 48%);
+  background-image: inherit;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-primary {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-primary {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-primary > svg.icon {
+  fill: #fff;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-danger {
+  color: #fff;
+  background-color: hsl(5, 64%, 50%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-danger {
+  border-top: 1px solid hsl(220, 24%, 12%);
+  border-right: 1px solid hsl(220, 24%, 12%);
+  border-bottom: 1px solid hsl(220, 24%, 12%);
+  border-left: 1px solid hsl(220, 24%, 12%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-danger {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-danger > svg.icon {
+  fill: #fff;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default.disabled,
+.ractive-cloudformation-ui.theme-atomdark .btn-default.btn-disabled,
+.ractive-cloudformation-ui.theme-atomdark .btn-default[disabled] {
+  background-image: none;
+  background-color: hsl(220, 24%, 26%);
+  color: hsl(220, 18%, 66%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-default.disabled > svg.icon,
+.ractive-cloudformation-ui.theme-atomdark .btn-default.btn-disabled > svg.icon,
+.ractive-cloudformation-ui.theme-atomdark .btn-default[disabled] > svg.icon {
+  fill: hsl(220, 18%, 66%);
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-xs {
+  border-radius: 3px;
+}
+.ractive-cloudformation-ui.theme-atomdark .btn-sm {
+  border-radius: 3px;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default {
+  color: hsl(220, 1%, 26%);
+  background-color: hsl(0, 0%, 100%);
+  background-image: inherit;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default > svg.icon {
+  color: hsl(220, 1%, 26%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-primary {
+  color: #fff;
+  background-color: hsl(208, 100%, 56%);
+  background-image: inherit;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-primary {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-primary {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-primary > svg.icon {
+  fill: #fff;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-danger {
+  color: #fff;
+  background-color: hsl(5, 72%, 56%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-danger {
+  border-top: 1px solid hsl(220, 1%, 86%);
+  border-right: 1px solid hsl(220, 1%, 86%);
+  border-bottom: 1px solid hsl(220, 1%, 86%);
+  border-left: 1px solid hsl(220, 1%, 86%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-danger {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-danger > svg.icon {
+  fill: #fff;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default.disabled,
+.ractive-cloudformation-ui.theme-atomlight .btn-default.btn-disabled,
+.ractive-cloudformation-ui.theme-atomlight .btn-default[disabled] {
+  background-image: none;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(220, 1%, 26%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-default.disabled > svg.icon,
+.ractive-cloudformation-ui.theme-atomlight .btn-default.btn-disabled > svg.icon,
+.ractive-cloudformation-ui.theme-atomlight .btn-default[disabled] > svg.icon {
+  fill: hsl(220, 1%, 26%);
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-xs {
+  border-radius: 3px;
+}
+.ractive-cloudformation-ui.theme-atomlight .btn-sm {
+  border-radius: 3px;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default {
+  color: #55002d;
+  background-color: #d4d0c8;
+  background-image: none;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default {
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  border-left: 1px solid #ffffff;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default {
+  box-shadow: inset -1px -1px 1px #808080;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default > svg.icon {
+  color: #55002d;
+}
+.ractive-cloudformation-ui.theme-windows .btn-primary {
+  color: #55002d;
+  background-color: #d4d0c8;
+  background-image: none;
+}
+.ractive-cloudformation-ui.theme-windows .btn-primary {
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  border-left: 1px solid #ffffff;
+}
+.ractive-cloudformation-ui.theme-windows .btn-primary {
+  box-shadow: inset -1px -1px 1px #808080;
+}
+.ractive-cloudformation-ui.theme-windows .btn-primary > svg.icon {
+  fill: #55002d;
+}
+.ractive-cloudformation-ui.theme-windows .btn-danger {
+  color: #55002d;
+  background-color: #d4d0c8;
+}
+.ractive-cloudformation-ui.theme-windows .btn-danger {
+  border-top: 1px solid #ffffff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  border-left: 1px solid #ffffff;
+}
+.ractive-cloudformation-ui.theme-windows .btn-danger {
+  box-shadow: inset -1px -1px 1px #808080;
+}
+.ractive-cloudformation-ui.theme-windows .btn-danger > svg.icon {
+  fill: #55002d;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default.disabled,
+.ractive-cloudformation-ui.theme-windows .btn-default.btn-disabled,
+.ractive-cloudformation-ui.theme-windows .btn-default[disabled] {
+  background-image: none;
+  background-color: #d4d0c8;
+  color: #827f7b;
+}
+.ractive-cloudformation-ui.theme-windows .btn-default.disabled > svg.icon,
+.ractive-cloudformation-ui.theme-windows .btn-default.btn-disabled > svg.icon,
+.ractive-cloudformation-ui.theme-windows .btn-default[disabled] > svg.icon {
+  fill: #827f7b;
+}
+.ractive-cloudformation-ui.theme-windows .btn-xs {
+  border-radius: 0px;
+}
+.ractive-cloudformation-ui.theme-windows .btn-sm {
+  border-radius: 0px;
+}
+.ractive-cloudformation-ui.theme-aws .btn-default {
+  color: #55002d;
+  background-color: #f2f2f2;
+  background-image: linear-gradient(to bottom, #fff, #dedede);
+}
+.ractive-cloudformation-ui.theme-aws .btn-default {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+}
+.ractive-cloudformation-ui.theme-aws .btn-default {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-aws .btn-default > svg.icon {
+  color: #55002d;
+}
+.ractive-cloudformation-ui.theme-aws .btn-primary {
+  color: #fff;
+  background-color: #257acf;
+  background-image: linear-gradient(to bottom, #38d, #16b);
+}
+.ractive-cloudformation-ui.theme-aws .btn-primary {
+  border-top: 1px solid #05a;
+  border-right: 1px solid #16b;
+  border-bottom: 1px solid #16b;
+  border-left: 1px solid #16b;
+}
+.ractive-cloudformation-ui.theme-aws .btn-primary {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-aws .btn-primary > svg.icon {
+  fill: #fff;
+}
+.ractive-cloudformation-ui.theme-aws .btn-danger {
+  color: #55002d;
+  background-color: #d4d0c8;
+}
+.ractive-cloudformation-ui.theme-aws .btn-danger {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+}
+.ractive-cloudformation-ui.theme-aws .btn-danger {
+  box-shadow: none;
+}
+.ractive-cloudformation-ui.theme-aws .btn-danger > svg.icon {
+  fill: #55002d;
+}
+.ractive-cloudformation-ui.theme-aws .btn-default.disabled,
+.ractive-cloudformation-ui.theme-aws .btn-default.btn-disabled,
+.ractive-cloudformation-ui.theme-aws .btn-default[disabled] {
+  background-image: none;
+  background-color: #f2f2f2;
+  color: #a9a5a5;
+}
+.ractive-cloudformation-ui.theme-aws .btn-default.disabled > svg.icon,
+.ractive-cloudformation-ui.theme-aws .btn-default.btn-disabled > svg.icon,
+.ractive-cloudformation-ui.theme-aws .btn-default[disabled] > svg.icon {
+  fill: #a9a5a5;
+}
+.ractive-cloudformation-ui.theme-aws .btn-xs {
+  border-radius: 4px;
+}
+.ractive-cloudformation-ui.theme-aws .btn-sm {
+  border-radius: 4px;
+}
+
