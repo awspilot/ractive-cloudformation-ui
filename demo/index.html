@@ -13,20 +13,41 @@
 		<script src="../dist/ractive-cloudformation-ui.js"></script>
 		<link rel="stylesheet" href="../dist/ractive-cloudformation-ui.css" />
 	</head>
-	<body class="theme_light">
+	<body style="background-color: #9694ff;">
 	</body>
 	<script>
 
 
 		var cloudformation;
-		Ractive.components['cloudformationui'] = window['ractive-cloudformation-ui'];
 
 		var ractive = new Ractive({
 			el: 'body',
 			components: {
+				'cloudformation-ui': window['ractive-cloudformation-ui']
 			},
 			template: `
-				<cloudformationui region="us-east-1" accessKeyId="myKeyId" secretAccessKey="y" endpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudformation"  />
+
+			<div style="position: absolute;top: 50px;left: 50px;width: 210px;bottom: 50px;">
+				<select value={{theme}}>
+
+					<option value="aws">AWS</option>
+
+					<option value="windows">Windows Classic</option>
+
+					<option value="atomdark">Atom Dark</option>
+					<option value="atomlight">Atom Light</option>
+
+				</select>
+			</div>
+			<div style="position: absolute;top: 50px;left: 260px;right: 50px;bottom: 50px;">
+				<cloudformation-ui
+					theme={{theme}}
+					region="us-east-1"
+					accessKeyId="myKeyId"
+					secretAccessKey="y"
+					endpoint="https://djaorxfotj9hr.cloudfront.net/v1/cloudformation"
+				/>
+			</div>
 			`
 		})
 	</script>
