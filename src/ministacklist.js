@@ -1,13 +1,13 @@
 
-
+var Icons = require('./svgicons');
 
 export default Ractive.extend({
 	components: {
-
+		'icon-refresh': Icons['icon-refresh'],
 	},
 	template: `
 		<div style="padding: 7px;text-align: right;background-color: #fafafa;">
-			<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
+			<a class="btn btn-sm btn-default" on-click="refresh"> <icon-refresh /> </a>
 		</div>
 
 		{{#stacks}}

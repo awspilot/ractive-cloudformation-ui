@@ -1,8 +1,9 @@
 
+var Icons = require('../svgicons');
 
 export default Ractive.extend({
 	components: {
-
+		'icon-refresh': Icons['icon-refresh'],
 	},
 	template: `
 
@@ -10,7 +11,7 @@ export default Ractive.extend({
 
 		<div style="background-color: #fafafa;border-bottom: 1px solid #eaeded;height: 50px;padding: 7px;">
 			<div style="float:right;">
-				<a class="btn btn-sm btn-default" on-click="@this.list_resources()"><i class="icon zmdi zmdi-refresh"></i></a>
+				<a class="btn btn-sm btn-default" on-click="@this.list_resources()"> <icon-refresh /> </a>
 			</div>
 			<div style="font-size: 20px;line-height: 40px;">Resources</div>
 

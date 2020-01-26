@@ -1,15 +1,15 @@
 
-
+var Icons = require('./svgicons');
 
 export default Ractive.extend({
 	components: {
-
+		'icon-refresh': Icons['icon-refresh'],
 	},
 	template: `
 		<div style="height: 50px;padding: 10px 10px 0px 0px;background-color: #fafafa;;">
 
 			<div style="float: right;">
-				<a class="btn btn-sm btn-default" on-click="refresh"><i class="icon zmdi zmdi-refresh"></i></a>
+				<a class="btn btn-sm btn-default" on-click="refresh"> <icon-refresh /> </a>
 				<a class="btn btn-sm btn-default {{#if selection}}{{else}}disabled{{/if}}" on-click='delete'> Delete </a>
 				<a class="btn btn-sm btn-default disabled" on-click='update-stack'> Update </a>
 				<a class="btn btn-sm btn-warning" on-click="create-stack"> Create stack </a>
